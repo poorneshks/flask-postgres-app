@@ -15,7 +15,8 @@ def get_db_connection():
 
 @app.route('/')
 def index():
-    return 'Welcome to Flask with PostgreSQL!'
+    return 'Welcome to Flask with PostgreSQL - UPDATED!'
+
 
 @app.route('/users')
 def users():
