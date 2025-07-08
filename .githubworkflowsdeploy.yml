@@ -1,0 +1,29 @@
+name: Build and Deploy to Azure Web App - poorneshflaskapp123
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your repo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: poorneshflaskapp123
+        slot-name: production
+        publish-profile: ''
+        images: ''
+        multicontainer-config-type: compose
+        multicontainer-config-file: docker-compose.yml
