@@ -16,7 +16,7 @@ jobs:
     - name: 🔐 Azure Login
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS2 }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: 🔨 Build Docker image
       run: docker build . -t kspoornesh/flagkpg-app
